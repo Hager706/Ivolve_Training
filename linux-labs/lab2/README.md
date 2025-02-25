@@ -11,7 +11,7 @@ sudo apt install mysql-server
 sudo systemctl start mysql
 sudo systemctl enable mysql
 ```
-### Step 1: Create the Backup Script
+### Step 2: Create the Backup Script
 Create a backup script:
 ```bash
  sudo nano /mysql_daily_backup.sh
@@ -46,11 +46,11 @@ fi
 # Delete backups older than 7 days
 find "$BACKUP_DIR" -type f -name "*.sql.gz" -mtime +7 -exec rm {} \;
 ```
-### Step 2: Make the Script Executable
+### Step 3: Make the Script Executable
 ```bash
 chmod +x mysql_daily_backup.sh
 ```
-### Step 3: Schedule with Cron
+### Step 4: Schedule with Cron
 1-Open the crontab editor:
 ```bash
 crontab -e
@@ -65,7 +65,7 @@ crontab -e
 ./mysql_daily_backup.sh
 ```
 ### output 
+![Alt text](Screen3-1.png)
 
-![Alt text](https://file%252B.vscode-resource.vscode-cdn.net/Users/macbook/Desktop/Ivolve_Training/linux-labs/lab2/Screen3.png?version%253D1740493379599)
 
 
