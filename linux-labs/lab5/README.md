@@ -1,13 +1,7 @@
 # SSH Key Configuration Lab
 
-A guide to setting up passwordless SSH access between a macOS host and an Ubuntu VM using public-key authentication.
-
-## Objective
-Configure SSH to connect to an Ubuntu VM using `ssh ivolve` without specifying:
-- Username
-- IP Address
-- Key file
-- Password/Passphrase
+## Objective  
+Generate public and private SSH keys on macOS and configure passwordless SSH access to an Ubuntu VM. Set up a shortcut command (`ssh ivolve`) to connect without specifying the username, IP, or key.
 
 ## Configuration Steps
 
