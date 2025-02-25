@@ -1,4 +1,4 @@
-# Ansible Lab: Managing Playbooks and Inventory
+# Ansible Lab: Managing Ad-hoc command and Inventory
 This lab demonstrates how to set up and configure Ansible to manage remote servers using ad-hoc command and inventory files. The steps include installing Ansible, configuring the ansible.cfg file, creating an inventory file, and testing commands on remote servers.
 
 ## Objective  
