@@ -3,16 +3,9 @@
 ## Overview
 This Lab automates the process of taking daily backups of a MySQL database at 5:00 PM. The backup script creates a compressed .sql file and deletes backups older than 7 days. The script is scheduled using cron.
 
-## Prerequisites
-- MySQL installed on your system.
-- A MySQL user with backup privileges.
-
 ## Steps
 ### Step 1: Create the Backup Script
 Save the script as mysql_daily_backup.sh:
-
-bash
-Copy
 #!/bin/bash
 
 # Database credentials
