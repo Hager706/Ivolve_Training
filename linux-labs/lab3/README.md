@@ -18,18 +18,13 @@ Displays a message indicating whether the server is up and running or unreachabl
 #!/bin/bash
 
 # Loop through the IP range 172.16.17.0 to 172.16.17.255
-for x in {0..255}; do
-    ip="172.16.17.$x"
-    
-    # Ping the server with 1 packet and a timeout of 1 second
-    ping -c 1 -W 1 $ip > /dev/null 2>&1
-    
-    # Check the exit status of the ping command
-    if [ $? -eq 0 ]; then
-        echo "Server $ip is up and running."
-    else
-        echo "Server $ip is unreachable."
-    fi
+for ip in 172.16.17.{0..255}; do
+ping -c1 ${ip} > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  echo "Server $ip is up and running."
+else
+  echo "Server $ip is unreachable."
+fi
 done
 ```
 2. Make the Script Executable
