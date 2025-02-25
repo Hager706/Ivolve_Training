@@ -65,7 +65,7 @@ crontab -e
 ./mysql_daily_backup.sh
 ```
 ### output 
-![Alt text](Screen3-1.png)
+![Alt text](Screen3.png)
 
 
 
