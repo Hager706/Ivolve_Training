@@ -4,8 +4,18 @@
 This Lab automates the process of taking daily backups of a MySQL database at 5:00 PM. The backup script creates a compressed .sql file and deletes backups older than 7 days. The script is scheduled using cron.
 
 ## Steps
+### Step 1: Install MySQL:
+```bash
+sudo apt update
+sudo apt install mysql-server
+sudo systemctl start mysql
+sudo systemctl enable mysql
+```
 ### Step 1: Create the Backup Script
-Save the script as mysql_daily_backup.sh:
+Create a backup script:
+```bash
+ sudo nano /mysql_daily_backup.sh
+```
 ```bash
 #!/bin/bash
 
@@ -49,5 +59,13 @@ crontab -e
 ```bash
 0 17 * * * /home/user/mysql_daily_backup.sh >> /var/log/mysql_backup.log 2>&1
 ```
+## Verification
+### Test the Script Manually:
+```bash
+./mysql_daily_backup.sh
+```
+### output 
+
+![Alt text](https://file%252B.vscode-resource.vscode-cdn.net/Users/macbook/Desktop/Ivolve_Training/linux-labs/lab2/Screen3.png?version%253D1740493379599)
 
 
