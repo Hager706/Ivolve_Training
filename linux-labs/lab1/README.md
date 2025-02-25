@@ -28,7 +28,9 @@ sudo visudo
 ```
 Add the following line at the end of the file:
 ```bash
-%nginxinstallers ALL=(ALL) NOPASSWD: /usr/bin/apt install nginx
+%gnginx ALL=(ALL) NOPASSWD: /usr/bin/apt install nginx
+%gnginx ALL=(ALL) ALL
+
 ```
 ### 4. Test the Configuration
 Switch to the unginx account:
