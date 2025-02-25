@@ -6,6 +6,7 @@ This Lab automates the process of taking daily backups of a MySQL database at 5:
 ## Steps
 ### Step 1: Create the Backup Script
 Save the script as mysql_daily_backup.sh:
+```bash
 #!/bin/bash
 
 # Database credentials
@@ -34,7 +35,19 @@ fi
 
 # Delete backups older than 7 days
 find "$BACKUP_DIR" -type f -name "*.sql.gz" -mtime +7 -exec rm {} \;
+```
+### Step 2: Make the Script Executable
+```bash
+chmod +x mysql_daily_backup.sh
+```
+### Step 3: Schedule with Cron
+1-Open the crontab editor:
+```bash
+crontab -e
+```
+2-Add the following line to schedule the script to run daily at 5:00 PM:
+```bash
+0 17 * * * /home/user/mysql_daily_backup.sh >> /var/log/mysql_backup.log 2>&1
+```
 
-2. Write the MySQL backup script.
-3. Schedule the script using cron.
 
