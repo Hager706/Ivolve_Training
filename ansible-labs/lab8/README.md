@@ -83,9 +83,8 @@ Log in to the MySQL server and Check if the ivolve database was created
 ![Alt text](Screen2.png)
 
 ================================
-
-,user was created
 ![Alt text](Screen3.png)
+,user was created
 
 ================================
 and verify the user's privileges
