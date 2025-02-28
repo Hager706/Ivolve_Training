@@ -6,26 +6,25 @@ This repository contains an Ansible playbook to automate the installation and co
 
 1. Ansible installation and configuration
 
-2. ssh configuration on the worker nodes(ubuntu).
+2. ssh configuration on the worker nodes(ubuntu)
 
-3. Python installation on the worker nodes(ubuntu).
+3. Generating the control node’s(macos) ssh keys
 
-4. Generating the control node’s(macos) ssh keys
+4. Adding the worker nodes(ubuntu) to the inventory file
 
-5. Adding the worker nodes(ubuntu) to the inventory file
+5. MYSQL installation with ansible
 
-6. MYSQL installation with ansible.
-
-7. Connecting to the database on worker nodes
+6. Connecting to the database on worker nodes
 
 ## steps
 ### 1-Configure SSH (macos)
+```bash
 Host ivolve
     HostName 192.168.105.11
     User hager
     IdentityFile ~/.ssh/id_rsa
     IdentitiesOnly yes
-
+```
 ### 2- Ping the ubuntu to confirm connectivity
 ```bash
 ansible -m ping ivolve :
