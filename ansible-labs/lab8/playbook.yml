@@ -1,0 +1,52 @@
+- name: Setup MySQL 
+  become: yes
+  hosts: web
+  vars_files:
+    - vault.yml
+
+  tasks:
+    - name: Update APT cache
+      apt:
+        update_cache: yes
+
+    - name: Install MySQL and dependencies
+      apt:
+        name:
+          - mysql-server
+          - mysql-client
+          - python3-mysqldb
+          - python3
+        state: present
+
+    - name: Start and enable MySQL service
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: Create MySQL user
+      mysql_user:
+        name: "{{ db_user }}"
+        password: "{{ db_pass }}"
+        priv: 'ivovle.*:ALL'
+        host: '%'
+        state: present
+
+    - name: Create ivolve database
+      mysql_db:
+        name: ivovle
+        state: present
+
+    - name: Enable remote login to MySQL
+      lineinfile:
+        path: /etc/mysql/mysql.conf.d/mysqld.cnf
+        regexp: '^bind-address'
+        line: 'bind-address = 0.0.0.0'
+      notify:
+        - Restart mysql
+
+  handlers:
+    - name: Restart mysql
+      service:
+        name: mysql
+        state: restarted
