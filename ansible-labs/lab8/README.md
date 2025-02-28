@@ -39,7 +39,9 @@ ivolve | SUCCESS => {
 ```
 ### 3- lab Structure 
 1. ansible.cfg
-This file configures Ansible settings and make vault_password_file: the file containing the Vault password for automation
+This file configures Ansible settings and make 
+### vault_password_file: 
+the file containing the Vault password for automation
 ```bash
 [defaults]
 inventory = ./inventory
