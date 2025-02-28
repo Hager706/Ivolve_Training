@@ -64,13 +64,13 @@ db_pass: "1234"
 ```
 4. Playbook Content
 The playbook performs the following tasks:
-   -Updates the APT cache.
-   -Installs MySQL Server, MySQL Client, and required dependencies.
-   -Starts and enables the MySQL service. 
-   -Creates a MySQL user with all privileges on the ivovle database.
-   -Creates the ivovle database. 
-   -Configures MySQL to allow remote access by modifying the bind-address  in the MySQL configuration file.
-   -Restarts the MySQL service to apply changes.
+   - Updates the APT cache.
+   - Installs MySQL Server, MySQL Client, and required dependencies.
+   - Starts and enables the MySQL service. 
+   - Creates a MySQL user with all privileges on the ivovle database.
+   - Creates the ivovle database. 
+   - Configures MySQL to allow remote access by modifying the bind-address  in the MySQL configuration file.
+   - Restarts the MySQL service to apply changes.
 
 5. Run the Playbook
 when you run playbook, Ansible will automatically use the password from .vault_pass to decrypt any Vault-encrypted files:
@@ -82,12 +82,12 @@ ansible-playbook playbook.yml
 Log in to the MySQL server and Check if the ivolve database was created
 ![Alt text](Screen2.png)
 
-
+================================
 
 ,user was created
 ![Alt text](Screen3.png)
 
-
+================================
 and verify the user's privileges
 ![Alt text](Screen4.png)
 
