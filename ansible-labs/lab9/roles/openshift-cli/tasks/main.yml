@@ -1,0 +1,19 @@
+---
+# tasks/main.yml for OpenShift CLI role
+
+- name: Download OpenShift CLI (oc)
+  get_url:
+    url: https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/oc.tar.gz
+    dest: /tmp/oc.tar.gz
+
+- name: Extract OpenShift CLI
+  unarchive:
+    src: /tmp/oc.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+    mode: '0755'
+
+- name: Clean up temporary files
+  file:
+    path: /tmp/oc.tar.gz
+    state: absent

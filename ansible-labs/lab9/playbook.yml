@@ -1,0 +1,8 @@
+---
+- name: Install Jenkins, Docker, and OpenShift CLI
+  hosts: web
+  become: yes
+  roles:
+    - role: docker
+    - role: jenkins
+    - role: openshift-cli
