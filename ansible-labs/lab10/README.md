@@ -1,12 +1,12 @@
 # Ansible AWS Apache Setup
 This repository contains an Ansible Task for automated Apache installation on AWS EC2 instances using dynamic inventory. The setup dynamically retrieves EC2 instances, applies configurations, and ensures scalable, automated deployments.
 
-# Features
-**✔** Dynamic AWS Inventory – Automatically discovers running EC2 instances.
-**✔** Ansible Galaxy Role – Uses geerlingguy.apache to install Apache.
-**✔** Automated Setup – Fully scriptable infrastructure provisioning.
-**✔** SSH Authentication – Ensures secure connections with private keys.
-**✔** GitHub Integration – Project is version-controlled and shareable.
+#  Features
+**✔** Dynamic AWS Inventory – Automatically discovers running EC2 instances.  
+**✔** Ansible Galaxy Role – Uses `geerlingguy.apache` to install Apache.  
+**✔** Automated Setup – Fully scriptable infrastructure provisioning.  
+**✔** SSH Authentication – Ensures secure connections with private keys.  
+**✔** GitHub Integration – Project is version-controlled and shareable.  
 
 # Project Structure
 ```bash
