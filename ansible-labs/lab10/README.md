@@ -2,21 +2,23 @@
 This repository contains an Ansible Task for automated Apache installation on AWS EC2 instances using dynamic inventory. The setup dynamically retrieves EC2 instances, applies configurations, and ensures scalable, automated deployments.
 
 # Features
-✔ Dynamic AWS Inventory – Automatically discovers running EC2 instances.
-✔ Ansible Galaxy Role – Uses geerlingguy.apache to install Apache.
-✔ Automated Setup – Fully scriptable infrastructure provisioning.
-✔ SSH Authentication – Ensures secure connections with private keys.
-✔ GitHub Integration – Project is version-controlled and shareable.
+**✔** Dynamic AWS Inventory – Automatically discovers running EC2 instances.
+**✔** Ansible Galaxy Role – Uses geerlingguy.apache to install Apache.
+**✔** Automated Setup – Fully scriptable infrastructure provisioning.
+**✔** SSH Authentication – Ensures secure connections with private keys.
+**✔** GitHub Integration – Project is version-controlled and shareable.
 
 # Project Structure
 ```bash
 ansible-aws-apache/
-│── ansible.cfg          # Ansible configuration (defaults)
+│── ansible.cfg          # Ansible configuration file
 │── aws_ec2.yml          # Dynamic AWS EC2 inventory
-│── install_apache.yml   # Ansible playbook to install Apache
+│── install_apache.yml   # Ansible playbook to install Apache & serve "Hello, World"
+│── templates/
+│   └── index.html.j2    # Custom Apache index file
 │── README.md            # Project documentation
-```
 
+```
 
 # Install Dependencies
 ```bash
@@ -28,11 +30,6 @@ Run:
 ```bash
 aws configure
 ```
-You will be prompted to enter:
-
-AWS Access Key ID
-AWS Secret Access Key
-Default AWS Region (e.g., us-east-1)
 
 ## Configure Ansible Inventory
 create aws_ec2.yml:
@@ -61,14 +58,34 @@ host_key_checking = False
 private_key_file = ~/.ssh/my-key.pem
 remote_user = ec2-user
 ```
+## Create install_apache.yml
+```bash
+---
+- name: Install Apache on AWS Instances
+  hosts: all
+  become: yes  
+  roles:
+    - geerlingguy.apache
+
+  tasks:
+    - name: Copy custom index.html
+      template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html
+      notify: Restart Apache
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
+```
+
 ## Install Required Ansible Collections
 ```bash
 ansible-galaxy collection install amazon.aws
 ```
-## Install Apache Role from Ansible Galaxy
-```bash
-ansible-galaxy install geerlingguy.apache
-```
+
 ## Run the Ansible Playbook
 ```bash
 ansible-playbook -i aws_ec2.yml install_apache.yml

@@ -1,5 +1,19 @@
+---
 - name: Install Apache on AWS Instances
   hosts: all
   become: yes  
   roles:
     - geerlingguy.apache
+
+  tasks:
+    - name: Copy custom index.html
+      template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html
+      notify: Restart Apache
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
