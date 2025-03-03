@@ -33,7 +33,7 @@ This project sets up an **AWS infrastructure** with:
 ### **2.1 Create an Internet Gateway**
 ### **2.2 Create a Route Table for the Public Subnet**
 
-!\[Alt text\](Screen1.png)
+![Alt text](Screen1.png)
 
 ---
 
@@ -41,12 +41,12 @@ This project sets up an **AWS infrastructure** with:
 ### **3.1 Create Bastion Host Security Group**
 
 - **Allows SSH from my ip**
-!\[Alt text\](Screen2.png)
+![Alt text](Screen2.png)
 
 ### **3.2 Create Private EC2 Security Group**
 
 - **Only allows SSH from Bastion Host**
-!\[Alt text\](Screen3.png)
+![Alt text](Screen3.png)
 
 ---
 
@@ -54,13 +54,13 @@ This project sets up an **AWS infrastructure** with:
 ### **4.1 Launch Bastion Host (Public EC2)**
 
 - ✅ **Public IP Assigned** for SSH access
-!\[Alt text\](Screen4.png)
+![Alt text](Screen4.png)
 
 
 ### **4.2 Launch Private EC2**
 
 - ❌ **No Public IP** (private access only)
-!\[Alt text\](Screen5.png)
+![Alt text](Screen5.png)
 
 ---
 
@@ -74,7 +74,7 @@ eval "$(ssh-agent -s)"
 ```sh
 ssh-add ~/.ssh/my-key.pem
 ```
-!\[Alt text\](Screen6.png)
+![Alt text](Screen6.png)
 
 ### **5.3 SSH into the Bastion Host (Public EC2)**
 ```sh
@@ -85,7 +85,7 @@ ssh -A -i ~/.ssh/my-key.pem ec2-user@<Bastion_Public_IP>
 ```sh
 ssh ec2-user@<Private_EC2_Private_IP>
 ```
-!\[Alt text\](Screen7.png)
+![Alt text](Screen7.png)
 
 - **Done! You're inside the Private EC2 🚀**
 
