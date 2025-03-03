@@ -53,13 +53,11 @@ This project sets up an **AWS infrastructure** with:
 ## **4️⃣ Launch EC2 Instances**
 ### **4.1 Launch Bastion Host (Public EC2)**
 
-- ✅ **Public IP Assigned** for SSH access
 ![Alt text](Screen4.png)
 
 
 ### **4.2 Launch Private EC2**
 
-- ❌ **No Public IP** (private access only)
 ![Alt text](Screen5.png)
 
 ---
